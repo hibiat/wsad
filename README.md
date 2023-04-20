@@ -7,30 +7,44 @@ The proposed WSAD algorithm is trained based on scan-wise normal and anomalous a
 
 ## Getting Started
 
-This is an example of how you may give instructions on setting up your project locally.
-To get a local copy up and running follow these simple example steps.
 
-### Data
-
-The following two publicly available datasets were used.
-
-### 
-
-- pytorch
+### Requirements
+- Python 3.9
+- PyTorch 1.13.0
+- Cuda 11.7
+- Pytorch Image Models (timm)
+- Pydicom
+- OpenCV
 - pandas
-- sklearn
+- scikit-learn
 
-This is an example of how to list things you need to use the software and how to install them.
-* npm
-  ```sh
-  npm install npm@latest -g
-  ```
+### Dataset 
 
-### Installation
+Download the following dataasets. Both of them are publicly availablle.
 
-_Below is an example of how you can instruct your audience on installing and setting up your app. This template doesn't rely on any external dependencies or services._
+- [RSNA brain hemorrhage dataset](https://www.kaggle.com/competitions/rsna-intracranial-hemorrhage-detection/data): Brain CT dataset collected from patients with intracranial hemorrhages. The data named "stage_2_train" are only required as they contain both training and testing samples.
+- [COVID-CTset](https://github.com/mr7495/COVID-CTset): Lung CT dataset collected from patients with COVID-19.
 
-1. Get a free API Key at [https://example.com](https://example.com)
+### Pre-processing: brain CT dataset
+Place downloaded data in a local directory (e.g., /path_to/rsna-intracranial-hemorrhage-detection) then run the following six scripts one by one for pre-processing downloaded data.
+
+- [01_dcm2png.py](./prepare_dataset_brain/01_dcm2png.py) conversts dcm to png files.
+- [02_renamepng.py](./prepare_dataset_brain/02_renamepng.py) organizes png files to several directories.
+- [03_makelabelfile.py](./prepare_dataset_brain/03_makelabelfile.py) creates csv file specifiying groundtruth labels.
+- [04_brainextract.py](./prepare_dataset_brain/04_brainextract.py) perfomrs skull stipping and segments brain regions.
+- [05_makemaskimg.py](./prepare_dataset_brain/05_makemaskimg.py): creates mask images based on extracted brain regions.
+- [06_feature_extractor.py](./prepare_dataset_brain/06_feature_extractor.py) extract features from pretrained models.
+
+### Pre-processing: lung CT dataset
+Place downloaded data in a local directory (e.g., /path_to/COVID-CTset) then run the following five scripts one by one for pre-processing downloaded data.
+
+- [01_renamepng.py](./prepare_dataset_lung/01_renamepng.py) renames downloaded files in an organized manner.
+- [02_makelabelfile.py](./prepare_dataset_lung/02_makelabelfile.py) creates csv file specifiying groundtruth labels.
+- [03_lungextract.py](./prepare_dataset_lung/03_lungextract.py) segments lung regions.
+- [04_makemaskimg.py](./prepare_dataset_lung/04_makemaskimg.py) creates mask images based on extracted lung regions.
+- [05_feature_extractor.py](./prepare_dataset_lung/05_feature_extractor.py) extract features from pretrained models.
+
+
 2. Clone the repo
    ```sh
    git clone https://github.com/your_username_/Project-Name.git
