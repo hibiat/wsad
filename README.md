@@ -27,7 +27,7 @@ Download the following dataasets. Both of them are publicly availablle.
 
 ## Pre-processing
 ### Brain CT dataset
-Place downloaded data in a local directory (e.g., /path_to/rsna-intracranial-hemorrhage-detection) then run the following six scripts one by one for pre-processing downloaded data.
+Place downloaded data in a local directory, then run the following six scripts one by one for pre-processing downloaded data. Make sure to change `/path_to/rsna-intracranial-hemorrhage-detection` in each script depenging on where downloaded images are saved.
 
 - [01_dcm2png.py](./prepare_dataset_brain/01_dcm2png.py) conversts dcm to png files.
 - [02_renamepng.py](./prepare_dataset_brain/02_renamepng.py) organizes png files to several directories.
@@ -37,7 +37,7 @@ Place downloaded data in a local directory (e.g., /path_to/rsna-intracranial-hem
 - [06_feature_extractor.py](./prepare_dataset_brain/06_feature_extractor.py) extract features from pretrained models.
 
 ### Lung CT dataset
-Place downloaded data in a local directory (e.g., /path_to/COVID-CTset) then run the following five scripts one by one for pre-processing downloaded data.
+Place downloaded data in a local directory, then run the following five scripts one by one for pre-processing downloaded data. Make sure to change `/path_to/COVID-CTset` in each script depenging on where downloaded images are saved.
 
 - [01_renamepng.py](./prepare_dataset_lung/01_renamepng.py) renames downloaded files in an organized manner.
 - [02_makelabelfile.py](./prepare_dataset_lung/02_makelabelfile.py) creates csv file specifiying groundtruth labels.
