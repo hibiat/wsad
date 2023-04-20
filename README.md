@@ -25,7 +25,8 @@ Download the following dataasets. Both of them are publicly availablle.
 - [RSNA brain hemorrhage dataset](https://www.kaggle.com/competitions/rsna-intracranial-hemorrhage-detection/data): Brain CT dataset collected from patients with intracranial hemorrhages. The data named "stage_2_train" are only required as they contain both training and testing samples.
 - [COVID-CTset](https://github.com/mr7495/COVID-CTset): Lung CT dataset collected from patients with COVID-19.
 
-### Pre-processing: brain CT dataset
+## Pre-processing
+### Brain CT dataset
 Place downloaded data in a local directory (e.g., /path_to/rsna-intracranial-hemorrhage-detection) then run the following six scripts one by one for pre-processing downloaded data.
 
 - [01_dcm2png.py](./prepare_dataset_brain/01_dcm2png.py) conversts dcm to png files.
@@ -35,7 +36,7 @@ Place downloaded data in a local directory (e.g., /path_to/rsna-intracranial-hem
 - [05_makemaskimg.py](./prepare_dataset_brain/05_makemaskimg.py): creates mask images based on extracted brain regions.
 - [06_feature_extractor.py](./prepare_dataset_brain/06_feature_extractor.py) extract features from pretrained models.
 
-### Pre-processing: lung CT dataset
+### Lung CT dataset
 Place downloaded data in a local directory (e.g., /path_to/COVID-CTset) then run the following five scripts one by one for pre-processing downloaded data.
 
 - [01_renamepng.py](./prepare_dataset_lung/01_renamepng.py) renames downloaded files in an organized manner.
@@ -44,16 +45,12 @@ Place downloaded data in a local directory (e.g., /path_to/COVID-CTset) then run
 - [04_makemaskimg.py](./prepare_dataset_lung/04_makemaskimg.py) creates mask images based on extracted lung regions.
 - [05_feature_extractor.py](./prepare_dataset_lung/05_feature_extractor.py) extract features from pretrained models.
 
+## Training a model
+1. Set parameters at [parameters.py](./parameters.py)
 
-2. Clone the repo
-   ```sh
-   git clone https://github.com/your_username_/Project-Name.git
-   ```
-3. Install NPM packages
-   ```sh
-   npm install
-   ```
-4. Enter your API in `config.js`
-   ```js
-   const API_KEY = 'ENTER YOUR API';
-   ```
+2. Run [run_train.py](./run_train.py)
+
+## Testing a model
+1. Run [run_test.py](./run_test.py)
+
+2. A performance report will be generated.
