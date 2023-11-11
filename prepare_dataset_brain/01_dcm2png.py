@@ -129,7 +129,7 @@ if __name__ == '__main__':
     parser = argparse.ArgumentParser(description=__doc__, formatter_class=argparse.ArgumentDefaultsHelpFormatter)
     parser.add_argument("-dcm_path", "--dcm_path", type=str)
     parser.add_argument("-png_path", "--png_path", type=str)
-    parser.add_argument("-numwindow", "--numwindow", type=int, default=1, help='(1)all-into-single window or (3)3-window into RGB(brain, subdural, bone) images ,(4)brain window (5) bone window')
+    parser.add_argument("-numwindow", "--numwindow", type=int, default=3, help='(1)all-into-single window or (3)3-window into RGB(brain, subdural, bone) images ,(4)brain window (5) bone window')
     
     args = parser.parse_args()
     dcm_path = args.dcm_path
