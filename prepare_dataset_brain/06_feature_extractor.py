@@ -10,7 +10,7 @@ from tqdm import tqdm
 import glob
 from PIL import Image
 
-modelnames = ['resnet50'] #'efficientnet_b4', 'tf_efficientnet_b4', 'vit_base_patch16_224_in21k'
+modelnames = ['vit_large_patch16_224_in21k'] #'efficientnet_b4', 'tf_efficientnet_b4', 'vit_base_patch16_224_in21k'
 rootdir = '/path_to/rsna-intracranial-hemorrhage-detection/'
 in_imgdirs = [rootdir+'stage_1_test_png_1ch_mask', rootdir+'stage_1_train_png_1ch_mask', \
             rootdir+'stage_1_test_png_3ch_mask', rootdir+'stage_1_train_png_3ch_mask']
