@@ -37,6 +37,5 @@ if __name__ == '__main__':
     save_path = os.path.join(args.saveroot, args.model_name, args.feature_extracted_model, 'k_{}_Lambda_{}'.format(args.k, args.Lambda))
     if args.slicelabel_test is not None:
         test(test_normal_loader=test_normal_loader, test_anomaly_loader=test_anomaly_loader, model=model, device=device, save_path=save_path, args=args)
-        eval_ichsubtype(test_normal_loader=test_normal_loader, test_anomaly_loader=test_anomaly_loader, model=model, device=device, save_path=save_path, args=args)
     else:
         test_no_slicelabel(test_normal_loader=test_normal_loader, test_anomaly_loader=test_anomaly_loader, model=model, device=device, save_path=save_path, args=args)
